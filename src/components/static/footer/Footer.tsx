@@ -4,6 +4,7 @@ import { Box } from '@mui/material'
 import InstagramIcon from '@material-ui/icons/Instagram'
 import GithubIcon from '@material-ui/icons/GitHub'
 import LinkedInIcon from '@material-ui/icons/LinkedIn'
+import './Footer.css'
 
 
 function Footer() {
@@ -11,30 +12,30 @@ function Footer() {
     <>
         <Grid container direction="row" justifyContent="center" alignItems="center">
             <Grid alignItems="center" item xs={12}>
-                <Box style={{ backgroundColor: "#3F51B5", height: "120px" }}>
+                <Box className='footer-box1'>
                     <Box paddingTop={1} display="flex" alignItems="center" justifyContent="center">
-                        <Typography variant="h5" align="center" gutterBottom style={{ color: "white" }}>
+                        <Typography variant="h5" align="center" gutterBottom className='footer-textos'>
                             Entre em contato:
                         </Typography>
                     </Box>
                     <Box display="flex" alignItems="center" justifyContent="center">
                         <a href="https://github.com/ronyrst" target="_blank">
-                            <GithubIcon style={{ fontSize: 48, color: "white" }} />
+                            <GithubIcon className='redes-sociais github' />
                         </a>
                         <a href="https://www.linkedin.com/in/rony-dos-santos-teles-29649a172/" target="_blank">
-                            <LinkedInIcon style={{ fontSize: 60, color: "white" }} />
+                            <LinkedInIcon className='redes-sociais linkedin' />
                         </a>
                     </Box>
                 </Box>
-                <Box style={{ backgroundColor: "#303F9F", height: "60px" }}>
+                <Box className='footer-box2'>
                     <Box paddingTop={1}>
-                        <Typography variant="subtitle2" align="center" gutterBottom style={{ color: "white" }} >
+                        <Typography variant="subtitle2" align="center" gutterBottom className='footer-textos' >
                             © 2023 Copyright:
                         </Typography>
                     </Box>
                     <Box>
-                        <a target="_blank" href="https://brasil.generation.org">
-                            <Typography variant="subtitle2" gutterBottom style={{ color: "white" }} align="center">
+                        <a target="_blank" href="https://brasil.generation.org" className='footer-link'>
+                            <Typography variant="subtitle2" gutterBottom className='footer-textos' align="center">
                                 brasil.generation.org
                             </Typography>
                         </a>

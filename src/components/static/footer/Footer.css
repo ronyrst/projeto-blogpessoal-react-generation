@@ -1,0 +1,29 @@
+.footer-box1 {
+    background-color: #3F51B5;
+    height: 120px;
+}
+
+.footer-box2 {
+    background-color: #303F9F;
+    height: 60px;
+}
+
+.redes-sociais {
+    color: white;
+}
+
+.github {
+    font-size: 48px;
+}
+
+.linkedin {
+    font-size: 60px;
+}
+
+.footer-textos {
+    color: white;
+}
+
+.footer-link {
+    text-decoration: none;
+}
