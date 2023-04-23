@@ -5,8 +5,9 @@ import { Grid } from '@material-ui/core';
 import './App.css';
 import Navbar from './components/static/navbar/Navbar'
 import Footer from './components/static/footer/Footer'
-import Home from './pages/home/Home';
+import Home from './pages/home/Home'
 import Login from './pages/login/Login'
+import CadastroUsuario from './pages/cadastroUsuario/CadastroUsuario';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 function App() {
@@ -19,7 +20,7 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/login" element={<Login />} />
           <Route path="/home" element={<Home />} />
-
+          <Route path="/cadastro" element={<CadastroUsuario />} />
         </Routes>
       </div>
       <Footer />
@@ -28,7 +29,3 @@ function App() {
 }
 
 export default App
-
-/* 
-<Route path="/cadastro" element={<CadastroUsuario />} /> 
-*/

@@ -12,5 +12,10 @@
 }
 
 .text-decorator-none {
-    text-decoration: none;
+    text-decoration: none !important;
+}
+
+
+.black {
+    color: black;
 }
