@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Postagem from '../../../models/Postagem'
-import { busca } from '../../../services/Service'
+import { getAll } from '../../../services/Service'
 import { Card, CardActions, CardContent, Button, Typography } from '@material-ui/core'
 import { Box } from '@mui/material'
 import './ListaPostagem.css'
@@ -24,7 +24,7 @@ function ListaPostagem() {
     }, [token])
 
     async function getPost() {
-        await busca("/postagens", setPosts, {
+        await getAll("/postagens", setPosts, {
             headers: {
                 'Authorization': token
             }
@@ -58,7 +58,7 @@ function ListaPostagem() {
                     <CardActions>
                         <Box display="flex" justifyContent="center" mb={1.5}>
 
-                            <Link to={`/formularioPostagem/${post.id}`} className="text-decorator-none" >
+                            <Link to={`/cadastrarPostagem/${post.id}`} className="text-decorator-none" >
                                 <Box mx={1}>
                                     <Button variant="contained" className="marginLeft" size='small' color="primary" >
                                         atualizar

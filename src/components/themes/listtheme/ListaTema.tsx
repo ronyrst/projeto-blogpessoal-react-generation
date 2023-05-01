@@ -5,7 +5,7 @@ import useLocalStorage from 'react-use-localstorage';
 import Tema from '../../../models/Tema'
 import { Box } from '@mui/material'
 import './ListaTema.css'
-import { busca } from '../../../services/Service'
+import { getAll } from '../../../services/Service'
 
 function ListaTema() {
     const [temas, setTemas] = useState<Tema[]>([])
@@ -22,7 +22,7 @@ function ListaTema() {
     }, [token])
 
     async function getTema() {
-        await busca('/temas', setTemas, {
+        await getAll('/temas', setTemas, {
             headers: {
                 'Authorization': token
             }
@@ -50,7 +50,7 @@ function ListaTema() {
                     <CardActions>
                         <Box display="flex" justifyContent="center" mb={1.5} >
 
-                            <Link to={`/formularioTema/${tema.id}`} className="text-decorator-none">
+                            <Link to={`/cadastrarTema/${tema.id}`} className="text-decorator-none">
                                 <Box mx={1}>
                                     <Button variant="contained" className="marginLeft" size='small' color="primary" >
                                         atualizar
