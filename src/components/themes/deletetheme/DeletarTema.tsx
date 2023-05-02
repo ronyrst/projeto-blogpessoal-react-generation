@@ -6,6 +6,7 @@ import Tema from "../../../models/Tema"
 import { deleteId, getId } from "../../../services/Service"
 import { useSelector } from "react-redux"
 import { TokenState } from "../../../store/tokens/tokensReducer"
+import { toast } from "react-toastify"
 
 function DeletarTema() {
 
@@ -21,7 +22,16 @@ function DeletarTema() {
 
     useEffect(() => {
         if (token == '') {
-            alert('Você precisa estar logado!')
+            toast.error('Você precisa estar logado', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: false,
+                theme: "colored",
+                progress: undefined
+            })
             history('/login')
         }
     }, [token])
@@ -49,7 +59,16 @@ function DeletarTema() {
             }
         })
 
-        alert('Tema apagado com sucesso.')
+        toast.success('Tema apagado com sucesso', {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: false,
+            theme: "colored",
+            progress: undefined
+        })
     }
 
     function nao() {

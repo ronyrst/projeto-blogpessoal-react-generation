@@ -6,6 +6,7 @@ import Postagem from "../../../models/Postagem"
 import { getAll, getId, post, put } from "../../../services/Service"
 import { useSelector } from "react-redux"
 import { TokenState } from "../../../store/tokens/tokensReducer"
+import { toast } from "react-toastify"
 
 function CadastroPostagem() {
 
@@ -21,7 +22,16 @@ function CadastroPostagem() {
 
     useEffect(() => {
         if (token == '') {
-            alert('Você precisa estar logado!')
+            toast.error('Você precisa estar logado', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: false,
+                theme: "colored",
+                progress: undefined
+            })
             history('/login')
         }
     }, [token])
@@ -86,7 +96,17 @@ function CadastroPostagem() {
                 }
             })
 
-            alert('Postagem atualizada com sucesso.')
+            toast.success('Postagem atualizada com sucesso', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: false,
+                theme: "colored",
+                progress: undefined
+            })
+            
         } else {
             post(`/postagens`, postagem, setPostagem, {
                 headers: {
@@ -94,7 +114,16 @@ function CadastroPostagem() {
                 }
             })
 
-            alert('Postagem cadastrada com sucesso.')
+            toast.success('Postagem cadastrada com sucesso', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: false,
+                theme: "colored",
+                progress: undefined
+            })
         }
 
         back()

@@ -1,4 +1,3 @@
-import React from 'react'
 import './App.css';
 import Navbar from './components/static/navbar/Navbar'
 import Footer from './components/static/footer/Footer'
@@ -12,13 +11,16 @@ import CadastroTema from './components/themes/registertheme/CadastroTema';
 import DeletarTema from './components/themes/deletetheme/DeletarTema';
 import CadastroPostagem from './components/posts/registerposts/CadastroPostagem';
 import DeletarPostagem from './components/posts/deleteposts/DeletarPostagem';
-import { Provider } from 'react-redux';
-import store from './store/store';
+import { Provider } from 'react-redux'
+import store from './store/store'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 function App() {
 
   return (
     <Provider store={store}>
+      <ToastContainer />
       <BrowserRouter>
         <Navbar />
         <div style={{ minHeight: '100vh' }}>
