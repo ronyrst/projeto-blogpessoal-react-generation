@@ -3,6 +3,7 @@ import { ChangeEvent, useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import Tema from "../../../models/Tema"
 import Postagem from "../../../models/Postagem"
+import User from "../../../models/User"
 import { getAll, getId, post, put } from "../../../services/Service"
 import { useSelector } from "react-redux"
 import { TokenState } from "../../../store/tokens/tokensReducer"
@@ -18,6 +19,10 @@ function CadastroPostagem() {
 
     const token = useSelector<TokenState, TokenState["tokens"]>(
         (state) => state.tokens
+    )
+
+    const userId = useSelector<TokenState, TokenState['id']>(
+        (state) => state.id
     )
 
     useEffect(() => {
@@ -45,13 +50,24 @@ function CadastroPostagem() {
         id: 0,
         titulo: '',
         texto: '',
-        tema: null
+        data: '',
+        tema: null,
+        usuario: null
+    })
+
+    const [usuario, setUsuario] = useState<User>({
+        id: +userId,
+        nome: '',
+        usuario: '',
+        senha: '',
+        foto: ''
     })
 
     useEffect(() => {
         setPostagem({
             ...postagem,
-            tema: tema
+            tema: tema,
+            usuario: usuario
         })
     }, [tema])
 
