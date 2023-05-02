@@ -5,13 +5,16 @@ import { getAll } from '../../../services/Service'
 import { Card, CardActions, CardContent, Button, Typography } from '@material-ui/core'
 import { Box } from '@mui/material'
 import './ListaPostagem.css'
-import useLocalStorage from 'react-use-localstorage'
+import { useSelector } from 'react-redux'
+import { TokenState } from '../../../store/tokens/tokensReducer'
 
 function ListaPostagem() {
 
     const [posts, setPosts] = useState<Postagem[]>([])
 
-    const [token, setToken] = useLocalStorage('token');
+    const token = useSelector<TokenState, TokenState["tokens"]>(
+        (state) => state.tokens
+    )
 
     let history = useNavigate();
 
@@ -37,47 +40,47 @@ function ListaPostagem() {
 
     return (
         <>
-        {
-            posts.map(post => (
-            <Box m={2} >
-                <Card variant="outlined">
-                    <CardContent>
-                        <Typography color="textSecondary" gutterBottom>
-                            Postagens
-                        </Typography>
-                        <Typography variant="h5" component="h2">
-                            {post.titulo}
-                        </Typography>
-                        <Typography variant="body2" component="p">
-                            {post.texto}
-                        </Typography>
-                        <Typography variant="body2" component="p">
-                            {post.tema?.descricao}
-                        </Typography>
-                    </CardContent>
-                    <CardActions>
-                        <Box display="flex" justifyContent="center" mb={1.5}>
+            {
+                posts.map(post => (
+                    <Box m={2} >
+                        <Card variant="outlined">
+                            <CardContent>
+                                <Typography color="textSecondary" gutterBottom>
+                                    Postagens
+                                </Typography>
+                                <Typography variant="h5" component="h2">
+                                    {post.titulo}
+                                </Typography>
+                                <Typography variant="body2" component="p">
+                                    {post.texto}
+                                </Typography>
+                                <Typography variant="body2" component="p">
+                                    {post.tema?.descricao}
+                                </Typography>
+                            </CardContent>
+                            <CardActions>
+                                <Box display="flex" justifyContent="center" mb={1.5}>
 
-                            <Link to={`/cadastrarPostagem/${post.id}`} className="text-decorator-none" >
-                                <Box mx={1}>
-                                    <Button variant="contained" className="marginLeft" size='small' color="primary" >
-                                        atualizar
-                                    </Button>
+                                    <Link to={`/cadastrarPostagem/${post.id}`} className="text-decorator-none" >
+                                        <Box mx={1}>
+                                            <Button variant="contained" className="marginLeft" size='small' color="primary" >
+                                                atualizar
+                                            </Button>
+                                        </Box>
+                                    </Link>
+                                    <Link to={`/deletarPostagem/${post.id}`} className="text-decorator-none">
+                                        <Box mx={1}>
+                                            <Button variant="contained" size='small' color="secondary">
+                                                deletar
+                                            </Button>
+                                        </Box>
+                                    </Link>
                                 </Box>
-                            </Link>
-                            <Link to={`/deletarPostagem/${post.id}`} className="text-decorator-none">
-                                <Box mx={1}>
-                                    <Button variant="contained" size='small' color="secondary">
-                                        deletar
-                                    </Button>
-                                </Box>
-                            </Link>
-                        </Box>
-                    </CardActions>
-                </Card>
-            </Box>
-            ))
-        }
+                            </CardActions>
+                        </Card>
+                    </Box>
+                ))
+            }
         </>
     )
 }
