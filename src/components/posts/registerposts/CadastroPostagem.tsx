@@ -76,7 +76,7 @@ function CadastroPostagem() {
         if (id !== undefined) {
             findByIdPostagem(id)
         }
-    })
+    }, [id])
 
     async function getTemas() {
         await getAll('/temas', setTemas, {

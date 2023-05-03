@@ -1,7 +1,7 @@
 import React from "react"
-import { Button, Modal } from "@material-ui/core"
+import { Button } from "@material-ui/core"
 import { Theme, createStyles, makeStyles } from "@material-ui/core/styles"
-import { Box } from "@mui/material"
+import { Box, Modal } from "@mui/material"
 import CloseIcon from '@material-ui/icons/Close';
 import CadastroPostagem from "../registerposts/CadastroPostagem"
 import './ModalPostagem.css'
